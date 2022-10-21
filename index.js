@@ -1,24 +1,22 @@
 import { menuArray } from './data.js'
 
 
-
 document.addEventListener('click', function (e) {
     if (e.target.dataset.add) {
         handleOrder(e.target.dataset.add)
     }
+
 })
 let orderedArray = [];
+
 function handleOrder(tweetId) {
-
-
     const targetTweetObj = menuArray.filter(function (tweet) {
         return tweet.id === tweetId
     })[0]
 
-  //  return targetTweetObj;
-  //  renderMenu();
+  
 
-  //gawa new object here
+
 }
 
 
@@ -29,7 +27,7 @@ function getMenuHtml() {
         let ing = ``
 
         menu.ingredients.forEach(function (content, index) {
-            console.log(index, content)
+            //     console.log(index, content)
 
             if (index !== menu.ingredients.length - 1) {
                 content += ", "
@@ -42,23 +40,20 @@ function getMenuHtml() {
         <p class="product-ingredients">${ing}</p>
         <p class="product-price">$${menu.price}</p>
         <i class="fa-thin fa-plus" data-add=${menu.id}></i>
+        <p>${menu.order}</p>
+      
         `
     })
     return menuHtml;
 }
 
-function getTotalOrder() {
 
-}
 
 
 function renderMenu() {
     document.getElementById('menu-here').innerHTML = getMenuHtml();
-    console.log(orderedArray);
+
 }
 
-function renderTotal() {
-   // document.getElementById('total-order').innerHTML = 
-}
 
 renderMenu();
