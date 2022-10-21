@@ -1,5 +1,8 @@
 import { menuArray } from './data.js'
 
+let order = []
+let uniqueOrder = []
+
 
 document.addEventListener('click', function (e) {
     if (e.target.dataset.add) {
@@ -7,17 +10,8 @@ document.addEventListener('click', function (e) {
     }
 
 })
-let orderedArray = [];
-
-function handleOrder(tweetId) {
-    const targetTweetObj = menuArray.filter(function (tweet) {
-        return tweet.id === tweetId
-    })[0]
-
-  
 
 
-}
 
 
 function getMenuHtml() {
