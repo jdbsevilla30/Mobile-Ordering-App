@@ -17,7 +17,13 @@ function handleOrder(itemId) {
         return item.id === itemId;
     })[0]
     //   order.push(targetItemId.name += targetItemId.name);
-    price.push(targetItemId.price += price);
+    order.push(
+
+        {
+            name: targetItemId.name,
+            price: targetItemId.price
+        })
+    price.push(targetItemId.price);
     renderMenu();
 }
 
@@ -42,8 +48,7 @@ function getMenuHtml() {
         <p class="product-ingredients">${ing}</p>
         <p class="product-price">$${menu.price}</p>
         <i class="fa-thin fa-plus" data-add=${menu.id}></i>
-
-      
+    
         `
     })
     return menuHtml;
@@ -53,19 +58,27 @@ function getMenuHtml() {
 function getOrderHtml() {
     let orderHtml = ``;
     let sum = 0;
+
+    orderHtml += `
+    <h1>Your order is</h1>
+    `
+
     for (let i = 0; i < price.length; i += 1) {
         sum += price[i];
+
+        orderHtml += `
+        <p>Item: ${order[i].name}</p>
+        <p>Price: $${order[i].price}</p>
+        <p></p>
+
+        <p></p>
+        `
+
     }
     orderHtml += `
     <br>
-    <br>
-    <br>
-    Your order is
-    <p>Item: ${order}</p>
-    <p>${order.length}</p>
-    <p>${sum}</p>
-    <p></p>
-    `
+    <p>Total: $${sum}</p>`
+  
     return orderHtml;
 }
 
