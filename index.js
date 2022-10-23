@@ -4,6 +4,26 @@ import { v4 as uuidv4 } from 'https://jspm.dev/uuid';
 let order = []
 let price = []
 
+function getOrderHtml() {
+    let orderHtml = ``;
+    let sum = 0;
+    orderHtml += `
+        <h1>Your order is</h1>
+        `
+    for (let i = 0; i < order.length; i++) {
+        sum += price[i];
+
+        orderHtml += `
+            <br>
+             <p>Item: ${order[i].name}</p>
+           <p>Price: $${order[i].price}</p>
+              <input type="button" data-remove=${order[i].id} value="remove">
+            <br>
+            `
+    }
+
+    return orderHtml;
+}
 
 document.addEventListener('click', function (e) {
     if (e.target.dataset.add) {
@@ -12,43 +32,21 @@ document.addEventListener('click', function (e) {
 
     else if (e.target.dataset.remove) {
         handleRemove(e.target.dataset.remove);
+
     }
 
     renderMenu();
 })
 
 function handleRemove(itemId) {
-
-    const targetItemId = order.filter(function (item) {
-        return item.id === itemId;
-    })[0]
-    console.log(targetItemId.id);
-}
-
-function getOrderHtml() {
     let orderHtml = ``;
-    let sum = 0;
+    order = order.filter(function (obj) {
+        return obj.id !== itemId
+    })
+    console.log(order);
 
-    orderHtml += `
-    <h1>Your order is</h1>
-    `
-    for (let i = 0; i < price.length; i += 1) {
-        sum += price[i];
-
-        orderHtml += `
-        <br>
-        <p>Item: ${order[i].name}</p>
-        <p>Price: $${order[i].price}</p>
-        <input type="button" data-remove=${order[i].id} value="remove">
-        <br>
-        `
-    }
-    orderHtml += `
-    <br>
-    <p>Total: $${sum}</p>`
-
-    return orderHtml;
 }
+
 
 
 function renderMenu() {
@@ -69,10 +67,9 @@ function handleOrder(itemId) {
             id: uuidv4()
         })
     price.push(targetItemId.price);
+    console.log("order lists: " + JSON.stringify(order))
     renderMenu();
 }
-
-
 
 
 function getMenuHtml() {
@@ -92,15 +89,8 @@ function getMenuHtml() {
         <p class="product-ingredients">${ing}</p>
         <p class="product-price">$${menu.price}</p>
         <i class="fa-thin fa-plus" data-add=${menu.id}></i>
-    
         `
     })
     return menuHtml;
 }
-
-
-
-
-
-
 renderMenu();
