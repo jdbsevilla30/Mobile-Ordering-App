@@ -8,7 +8,7 @@ function getOrderHtml() {
     let orderHtml = ``;
     let sum = 0;
     orderHtml += `
-        <h1>Your order is</h1>
+        <h1>Your order is </h1>
         `
     for (let i = 0; i < order.length; i++) {
         sum += price[i];
@@ -22,20 +22,23 @@ function getOrderHtml() {
             `
     }
 
+    orderHtml += `Your total is: ${sum}`
+    if (order.length < 1) {
+        orderHtml = "";
+    }
     return orderHtml;
 }
 
 document.addEventListener('click', function (e) {
     if (e.target.dataset.add) {
         handleOrder(e.target.dataset.add)
+        renderOrder();
     }
 
     else if (e.target.dataset.remove) {
         handleRemove(e.target.dataset.remove);
-
+        renderOrder();
     }
-
-    renderMenu();
 })
 
 function handleRemove(itemId) {
@@ -51,8 +54,10 @@ function handleRemove(itemId) {
 
 function renderMenu() {
     document.getElementById('menu-here').innerHTML = getMenuHtml();
-    document.getElementById('total-order').innerHTML = getOrderHtml();
+}
 
+function renderOrder() {
+    document.getElementById('total-order').innerHTML = getOrderHtml();
 }
 
 function handleOrder(itemId) {
