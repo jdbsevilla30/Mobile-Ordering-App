@@ -4,3 +4,9 @@
 
     text-align: center;
 }
+
+.remove-button
+{
+    border: none;
+    background-color: white;
+}
