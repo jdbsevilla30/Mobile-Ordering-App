@@ -5,8 +5,21 @@
     text-align: center;
 }
 
-.remove-button
+.remove-btn {}
+
+.purchase-total {}
+
+.ordered-item-name {}
+
+.ordered-item.price {}
+
+.header {}
+
+.clear-btn {}
+
+.add-btn {}
+
+.restaurant-menu
 {
-    border: none;
-    background-color: white;
+    
 }

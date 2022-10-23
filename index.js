@@ -1,41 +1,8 @@
 import { menuArray } from './data.js'
 import { v4 as uuidv4 } from 'https://jspm.dev/uuid';
-import {getMenuHtml()} from './getmenu.js'
-
-let orderedItems = []
-
-function getOrderHtml() //renders customer's total order
-{
-    let orderHtml = ``;
-    let orderTotal = 0;
-    orderHtml +=
-        `
-        <h1 class="header">Your order is </h1>
-        `
-    for (let i = 0; i < orderedItems.length; i++) {
-        orderTotal += orderedItems[i].price;
-
-        orderHtml +=
-            `
-        <p class="ordered-item-name">Item: ${orderedItems[i].name}</p>
-        <p class="ordered-item-price">Price: $${orderedItems[i].price}</p>
-        <input 
-        class="remove-btn"
-        type="button" 
-        data-remove=${orderedItems[i].id} 
-        value="remove">
-        `
-    }
-    orderHtml +=
-        `
-<i class="fa-regular fa-minus clear-btn" data-clear="clear"></i> 
-<p class="purchase-total">Your total is: $${orderTotal}</p>
-    `
-    if (orderedItems.length < 1) { //if nothing is pushed through orderedItems, clear this
-        orderHtml = "";
-    }
-    return orderHtml;
-}
+import { getMenuHtml } from './getmenu.js'
+import { getOrderHtml } from './getorder.js'
+export let orderedItems = []
 
 document.addEventListener('click', function (e) {
     if (e.target.dataset.add) {
@@ -49,6 +16,9 @@ document.addEventListener('click', function (e) {
     else if (e.target.dataset.clear) {
         orderedItems = [];
     }
+    else if (e.target.dataset.complete) {
+        console.log("complete order. may lalabas na popup na enter card details");
+    }
     renderOrder();
 })
 
@@ -59,14 +29,12 @@ function handleRemove(itemId) {
     })
 }
 
-
-
 function renderMenu() {
     document.getElementById('menu-here').innerHTML = getMenuHtml();
 }
 
 function renderOrder() {
-    document.getElementById('total-orders').innerHTML = getOrderHtml();
+    document.getElementById('total-order').innerHTML = getOrderHtml();
 }
 
 function handleOrder(itemId) {
@@ -82,7 +50,5 @@ function handleOrder(itemId) {
         })
     renderMenu();
 }
-
-
 
 renderMenu();

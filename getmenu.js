@@ -1,3 +1,4 @@
+import { menuArray } from "./data.js"
 export function getMenuHtml() {
     let menuHtml = ``
     menuArray.forEach(function (menu) {
