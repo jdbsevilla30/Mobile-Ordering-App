@@ -1,4 +1,6 @@
 import { orderedItems } from './index.js' //import the orderdItems array from index
+import { paymentFormDisplay } from './index.js'
+import { paymentForm } from './index.js'
 export function getOrderHtml() //renders customer's total order
 {
     let orderHtml = ``;
@@ -19,6 +21,7 @@ export function getOrderHtml() //renders customer's total order
         data-remove=${orderedItems[i].id} 
         value="remove">
         `
+    
     }
     orderHtml +=
         `
@@ -33,6 +36,7 @@ export function getOrderHtml() //renders customer's total order
         `
     if (orderedItems.length < 1) { //if nothing is pushed through orderedItems, clear this
         orderHtml = "";
+      
     }
     return orderHtml;
 }

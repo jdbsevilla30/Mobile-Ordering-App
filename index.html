@@ -11,16 +11,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
         integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
+
+    <div class="header-container">
+        <img src="./img.png" class="img">
+        <div class="store-name">
+            <h1>Jimmy's Diner</h1>
+            <p>The best in town yo</p>
+        </div>
+    </div>
     <div id="menu-here">
     </div>
 
     <div id="total-order">
     </div>
     <div id="container" class="hidden">
-        <div class="form-container">
+        <div class="form-container modal">
             <form id="payment-form">
                 <div class="column">
                     <label for="text1">Name:</label>
@@ -32,9 +43,13 @@
                     <input type="text" name="text2" required />
                     <input type="text" name="text3" required />
                 </div>
-                <input type="submit" id="submit-btn" data-sub="sub">
+                <input type="submit" id="submit-btn" data-sub="sub" value="Pay">
             </form>
         </div>
+    </div>
+
+    <div id="order-prompt">
+
     </div>
     <script src="index.js" type="module" async defer></script>
 </body>
