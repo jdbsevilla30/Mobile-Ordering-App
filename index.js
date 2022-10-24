@@ -4,6 +4,10 @@ import { getMenuHtml } from './getmenu.js'
 import { getOrderHtml } from './getorder.js'
 export let orderedItems = []
 
+const paymentFormDisplay = document.getElementById('container');
+const paymentForm = document.getElementById('payment-form')
+const submitButton = document.getElementById('submit-btn');
+
 document.addEventListener('click', function (e) {
     if (e.target.dataset.add) {
         handleOrder(e.target.dataset.add)
@@ -17,10 +21,21 @@ document.addEventListener('click', function (e) {
         orderedItems = [];
     }
     else if (e.target.dataset.complete) {
-        console.log("complete order. may lalabas na popup na enter card details");
+        paymentFormDisplay.classList.toggle('hidden')
     }
+
+
     renderOrder();
 })
+
+paymentForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const paymentFormData = new FormData(paymentForm);
+    const fullName = paymentFormData.get('fullName')
+    console.log(fullName);
+    paymentFormDisplay.classList.toggle('hidden')
+})
+
 
 function handleRemove(itemId) {
     let orderHtml = ``;

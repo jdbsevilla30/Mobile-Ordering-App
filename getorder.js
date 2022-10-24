@@ -22,15 +22,15 @@ export function getOrderHtml() //renders customer's total order
     }
     orderHtml +=
         `
-<i class="fa-regular fa-minus clear-btn" data-clear="clear"></i> 
-<p class="purchase-total">Your total is: $${orderTotal}</p>
-<input 
-class="complete-order"
-type="button" 
-data-complete="complete"
-value="Complete Order" 
->
-    `
+        <i class="fa-regular fa-minus clear-btn" data-clear="clear"></i> 
+        <p class="purchase-total">Your total is: $${orderTotal}</p>
+        <input 
+        class="complete-order"
+        type="button" 
+        data-complete="complete"
+        value="Complete Order" 
+        >
+        `
     if (orderedItems.length < 1) { //if nothing is pushed through orderedItems, clear this
         orderHtml = "";
     }

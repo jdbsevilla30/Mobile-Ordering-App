@@ -19,7 +19,45 @@
 
 .add-btn {}
 
-.restaurant-menu
+.restaurant-menu {}
+
+.customer-details {
+    border: 1px solid red;
+    width: 50%;
+    text-align: left;
+    display: inline-block;
+    justify-content: center;
+    margin: 0 auto;
+
+}
+
+#container {
+    text-align: center;
+}
+
+#container .form-container {
+    display: inline-block;
+}
+
+#container form {
+    background: #eee;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 20px;
+}
+
+#container form .column {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+#container form .column label {
+    text-align: right;
+}
+
+.hidden
 {
-    
+    display: none;
 }

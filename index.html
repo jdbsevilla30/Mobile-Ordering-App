@@ -16,8 +16,25 @@
 <body>
     <div id="menu-here">
     </div>
-    
+
     <div id="total-order">
+    </div>
+    <div id="container" class="hidden">
+        <div class="form-container">
+            <form id="payment-form">
+                <div class="column">
+                    <label for="text1">Name:</label>
+                    <label for="text2">Card Number:</label>
+                    <label for="text3">CVV:</label>
+                </div>
+                <div class="column">
+                    <input type="text" name="fullName" required />
+                    <input type="text" name="text2" required />
+                    <input type="text" name="text3" required />
+                </div>
+                <input type="submit" id="submit-btn" data-sub="sub">
+            </form>
+        </div>
     </div>
     <script src="index.js" type="module" async defer></script>
 </body>
