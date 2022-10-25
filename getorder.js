@@ -5,6 +5,7 @@ export function getOrderHtml() //renders customer's total order
 {
     let orderHtml = ``;
     let orderTotal = 0;
+
     orderHtml +=
         `
         <div class="customer-cart">
@@ -20,18 +21,35 @@ export function getOrderHtml() //renders customer's total order
         <div class="cart-item-price">$${orderedItems[i].price}</div>
     </div>
         `
-
     }
+
     orderHtml +=
         `
         <hr>
         <div class="cart-total spacing">
+      
+
+        `
+    if (orderTotal >= 26) {
+        orderHtml += `
+        <div class="cart-item-name">Discounted Price:</div>
+        <div class="cart-item-price">$${orderTotal - 5}</div>
+        `
+    }
+    else {
+        orderHtml += `
         <div class="cart-item-name">Total Price:</div>
         <div class="cart-item-price">$${orderTotal}</div>
-    </div>
-    <button type="submit" class="submit-btn" data-complete="complete">Complete Order</button>
-</div>
+
         `
+    }
+    orderHtml += `
+    </div>
+    <div class="cart-item-price-dc">$5 discount for $26 and above!</div>
+    <button type="submit" class="submit-btn" data-complete="complete">Complete Order</button>
+</div>`
+
+
     if (orderedItems.length < 1) { //if nothing is pushed through orderedItems, clear this
         orderHtml = "";
 
