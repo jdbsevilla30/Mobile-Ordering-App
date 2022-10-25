@@ -4,28 +4,28 @@ import { getMenuHtml } from './getmenu.js'
 import { getOrderHtml } from './getorder.js'
 export let orderedItems = []
 
-export const paymentFormDisplay = document.getElementById('container');
+export const paymentFormDisplay = document.getElementById('payment-form');
 export const paymentForm = document.getElementById('payment-form')
 const submitButton = document.getElementById('submit-btn');
 
 document.addEventListener('click', function (e) {
     if (e.target.dataset.add) {
         handleOrder(e.target.dataset.add)
+        console.log("add")
     }
 
     else if (e.target.dataset.remove) {
         handleRemove(e.target.dataset.remove);
+    }
+    // else if (e.target.dataset.clear) {
+    //     orderedItems = [];
 
-    }
-    else if (e.target.dataset.clear) {
-        orderedItems = [];
-       
-    }
+    // }
     else if (e.target.dataset.complete && orderedItems.length > 0) {
-        paymentFormDisplay.classList.toggle('hidden')
-
+        paymentFormDisplay.classList.toggle('hide')
+        console.log("Complete Order pressed")
     }
-    
+
     renderOrder();
 })
 
@@ -33,8 +33,10 @@ paymentForm.addEventListener('submit', function (e) {
     e.preventDefault();
     const paymentFormData = new FormData(paymentForm);
     const fullName = paymentFormData.get('fullName')
-    paymentFormDisplay.classList.toggle('hidden')
+    paymentFormDisplay.classList.toggle('hide')
     renderPrompt(fullName);
+    document.getElementById('total-order').classList.add('hide');
+    console.log("pay pressed");
 })
 
 
@@ -74,18 +76,10 @@ function renderPrompt(name) {
     prompt +=
 
         `
-    <div class="thank-you-message"> 
-    <p>Thanks, ${name}! Your order is on its way!</p>
-    <div>
+        <section class="thank-you">
+        <h1 class="thank-you-text">Thanks, ${name}! Your order is on its way!</h1>
+    </section>
     `
     orderPrompt.innerHTML += prompt;
 }
-
-function checkForOrders() {
-    if (orderedItems.length < 1) {
-        paymentFormDisplay.classList.toggle('hidden')
-        
-    }
-}
-
 renderMenu();

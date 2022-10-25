@@ -11,14 +11,17 @@ export function getMenuHtml() {
         })
 
         menuHtml += `
-        <div class="restaurant-menu">
-        <p class="emoji">${menu.emoji}</p>
-        <p class="product-name" id=menu-${menu.id}>${menu.name}</p>
-        <p class="product-ingredients">${ingredients}</p>
-        <p class="product-price">$${menu.price}</p>
-        <i class="fa-thin fa-plus add-btn" data-add=${menu.id}></i>
+        <div class="menu-item">
+        <div class="item-pic">${menu.emoji}</div>
+        <div class="item-info">
+            <div class="item-name" id="menu-${menu.id}">${menu.name}</div>
+            <div class="item-ingredients">${ingredients}</div>
+            <div class="item-price">$${menu.price}</div>
         </div>
+        <button class="menu-item-add-btn" data-add="${menu.id}">+</button>
+    </div>
         `
+
     })
     return menuHtml;
 }

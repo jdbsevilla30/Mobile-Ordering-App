@@ -17,41 +17,39 @@
 </head>
 
 <body>
-
-    <div class="header-container">
-        <img src="./img.png" class="img">
-        <div class="store-name">
-            <h1>Jimmy's Diner</h1>
-            <p>The best in town yo</p>
+    <div class="work-area">
+        <div class="image-text">
+            <img src="./img.png" class="img">
+            <div class="text-block">
+                <h1 class="store-name">Jimmy's Diner</h1>
+                <p class="store-desc">The best in town</p>
+            </div>
         </div>
-    </div>
-    <div id="menu-here">
-    </div>
 
-    <div id="total-order">
-    </div>
-    <div id="container" class="hidden">
-        <div class="form-container modal">
-            <form id="payment-form">
-                <div class="column">
-                    <label for="text1">Name:</label>
-                    <label for="text2">Card Number:</label>
-                    <label for="text3">CVV:</label>
-                </div>
-                <div class="column">
-                    <input type="text" name="fullName" required />
-                    <input type="text" name="text2" required />
-                    <input type="text" name="text3" required />
-                </div>
-                <input type="submit" id="submit-btn" data-sub="sub" value="Pay">
+
+        <div id="menu-here">
+            <!--this is where the menu will be printed-->
+        </div>
+
+        <div id="total-order">
+            <!--this is where the orders and the total order will be pritned-->
+        </div>
+
+        <section>
+            <form class="pay-form hide" id="payment-form">
+                <h2 class="enter-card">Enter card details</h2>
+                <input class="input-field" type="text" id="name" name="fullName" placeholder="Enter your name">
+                <input class="input-field" type="number" id="card-number" name="cardNumber"
+                    placeholder="Enter card number">
+                <input class="input-field" type="number" id="cvv" name="cvv" placeholder="Enter CVV">
+                <button type="submit" class="submit-btn pay-btn">Pay</button>
             </form>
+        </section>
+
+        <div id="order-prompt">
+
         </div>
-    </div>
-
-    <div id="order-prompt">
-
-    </div>
-    <script src="index.js" type="module" async defer></script>
+        <script src="index.js" type="module" async defer></script>
 </body>
 
 </html>

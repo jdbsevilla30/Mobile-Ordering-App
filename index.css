@@ -1,122 +1,231 @@
+/*css reset*/
 * {
-    margin: 0 auto;
+    margin: 0;
     padding: 0;
 
-    text-align: center;
 }
 
-.remove-btn {}
-
-.purchase-total {}
-
-.ordered-item-name {}
-
-.ordered-item.price {}
-
-.header {}
-
-.clear-btn {}
-
-.add-btn {}
-
-.restaurant-menu {}
-
-.customer-details {
-    border: 1px solid red;
-    width: 50%;
-    text-align: left;
-    display: inline-block;
-    justify-content: center;
-    margin: 0 auto;
-
+/*remove the arrow from the input*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
-#container {
-    text-align: center;
+/*global styling*/
+body {
+    font-family: 'Smythe', cursive;
+    font-weight: 400;
+    font-size: 16px;
 }
 
-#container .form-container {
-    display: inline-block;
-}
-
-#container form {
-    background: #eee;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    padding: 20px;
-}
-
-#container form .column {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-}
-
-#container form .column label {
-    text-align: right;
-}
-
-.hidden {
-    display: none;
-}
-
-.header-img {
-    width: 37.5em;
-    position: relative;
-
-}
-
-.img {
-    display: block;
-    margin: 0 auto;
-    max-width: 100%;
-}
-
-.header-container {
-    position: relative;
-    width: 100%;
-}
-
-.store-name {
+/*container of the store-name and store-desc*/
+.text-block {
     position: absolute;
     top: 0;
-    width: 100%;
-
-
+    color: #FFFFFF;
 }
 
-.store-name h1,
-.store-name p {
-    font-family: 'Source Sans Pro', sans-serif;
-    color: white;
-    font-weight: normal;
+/*Jimmy's Diner*/
+.store-name {
+    margin: 46px 0 19px 46px;
+    font-size: 2.438rem;
 }
 
-.store-name h1 {
-    font-size: 2.4375rem;
-}
-
-.store-name p {
+/*the best in town po*/
+.store-desc {
+    margin: 0 0 0 46px;
     font-size: 1.5rem;
 }
 
-.menu-here {
-    background-color: #FFFFFF;
+/*smol spacebefore the work area*/
+.image-text {
+    margin-bottom: 4.188em;
 }
 
-.modal {
-    display: none;
+/*image and the work area*/
+.work-area,
+.img {
+    width: 37.5em;
+    margin: 0 auto;
+}
+
+/*flexbox for the menu items*/
+.menu-item {
+
+
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    border-bottom: 1px solid #D2D2D2;
+    margin-bottom: 2.813em;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+/*item icon*/
+.item-pic {
+    font-size: 78px;
+    margin-right: 30px;
+}
+
+/*item name*/
+.item-name {
+    margin-top: 13px 0 9px;
+    font-family: 'Smythe', cursive;
+    font-size: 1.75rem;
+}
+
+/*item ingredients*/
+.item-ingredients {
+    color: #8B8B8B;
+    width: 22.375em;
+    margin-bottom: 0.5em;
+}
+
+/*item price*/
+.item-price {
+    font-size: 1.5em;
+    margin-bottom: 3.1875em;
+}
+
+/*add button on the right*/
+.menu-item-add-btn {
+    display: hidd;
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    font-size: 2.1875rem;
+    border: 1px solid #FFFFFF;
+    margin-top: 1em;
+}
+
+.menu-item-add-btn:hover
+{
+    cursor: pointer;
+}
+
+/*Your order*/
+
+
+/*cart container*/
+.cart-total {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.375em;
+}
+
+/*Cart order*/
+.cart-item-name {
+    font-size: 1.75em;
+    color: #000000;
+}
+
+/*remove button*/
+.cart-remove {
+    font-size: 0.75em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #BBBBBB;
+    margin-left: 10px;
+}
+
+.cart-remove:hover
+{
+cursor: pointer;
+}
+
+/*price of the added items*/
+.cart-item-price {
+    font-size: 1.25em;
+    color: #000000;
+    margin-left: auto;
+
+}
+
+/*the long thick bar*/
+hr {
+    border: 2px solid #393333;
+    margin-top: 28px;
+    margin-bottom: 14px;
+}
+
+/*spacing of the total price to the complete order button*/
+.spacing {
+    margin-bottom: 3.3125em;
+}
+
+/*submit button styling*/
+.submit-btn {
+    width: 100%;
+    padding: 20px;
+    font-size: 1.25rem;
+    color: white;
+    background: #16DB99;
+    border: none;
+    margin-bottom: 3.125em;
+}
+
+.your-order,
+.pay-form,
+.thank-you-text {
+    text-align: center;
+}
+
+.pay-form {
+    display: block;
+    width: 500px;
+    height: 500px;
     position: fixed;
     right: 0;
     left: 0;
     top: 0;
     bottom: 0;
+    font-family: "Inter", sans-serif;
+    background-color: #ffffff;
+    padding: 50px;
+    border-radius: 4px;
     margin: auto;
-    height: 420px;
-    width: 350px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 6px 2px #666;
-    background-color: #212529;
-    color: whitesmoke;
+    filter: drop-shadow(5.18654px 5.18654px 255.437px rgba(0, 0, 0, 0.5));
+    text-align: center;
+}
+
+
+/*enter card details*/
+.enter-card {
+    margin: 47px 0 46px;
+    font-size: 24px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/*the input buttons yay*/
+.pay-form input {
+    display: block;
+    padding: 15px 0;
+    text-indent: 20px;
+    width: 100%;
+    margin-bottom: 23px;
+    border-radius: 9px;
+    color: #757575;
+    border-color: #757575;
+}
+
+/*the pay button*/
+.pay-btn {
+    margin-top: 23px;
+}
+
+/*thank you card after ordering*/
+.thank-you {
+    border: 1px solid #ECFDF5;
+    width: 31.5em;
+    padding: 25px;
+    color: #065F46;
+    background-color: #ECFDF5;
+    margin: 0 auto;
+}
+
+/*display default is none, toggle this to display the contents of the classes*
+.customer-cart, .pay-form, and .thank-you
+*/
+.hide {
+    display: none;
 }
