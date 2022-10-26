@@ -9,9 +9,6 @@ export function getMenuHtml() {
             }
             ingredients += content;
         })
-
-      
-
         menuHtml += `
         <div class="menu-item">
         <div class="item-pic">${menu.emoji}</div>
@@ -23,7 +20,6 @@ export function getMenuHtml() {
         <button class="menu-item-add-btn" data-add="${menu.id}">+</button>
     </div>
         `
-
     })
     return menuHtml;
 }

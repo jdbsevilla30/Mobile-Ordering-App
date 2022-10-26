@@ -17,10 +17,6 @@ document.addEventListener('click', function (e) {
     else if (e.target.dataset.remove) {
         handleRemove(e.target.dataset.remove);
     }
-    // else if (e.target.dataset.clear) {
-    //     orderedItems = [];
-
-    // }
     else if (e.target.dataset.complete && orderedItems.length > 0) {
         paymentFormDisplay.classList.toggle('hide')
         console.log("Complete Order pressed")
